@@ -4,9 +4,11 @@ from fastapi import FastAPI
 
 app = FastAPI(title="Retail Intelligence API")
 
-FORECAST_PATH = BASE_DIR / "data" / "processed" / "sales_forecast.csv"
+
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_PATH = BASE_DIR / "data" / "processed" / "retail_merged.csv"
+FORECAST_PATH = BASE_DIR / "data" / "processed" / "sales_forecast.csv"
+
 
 df = pd.read_csv(DATA_PATH, low_memory=False)
 df["order_date"] = pd.to_datetime(df["order_date"], errors="coerce")
